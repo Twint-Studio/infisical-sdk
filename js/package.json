@@ -1,0 +1,13 @@
+{
+    "name": "infisical-sdk",
+    "version": "1.0.0",
+    "description": "Simple SDK for Infisical.",
+    "license": "0BSD",
+    "author": "Prince527",
+    "exports": {
+        ".": {
+            "import": "./index.mjs",
+            "require": "./index.cjs"
+        }
+    }
+}
