@@ -1,5 +1,5 @@
 {
-    "name": "infisical-sdk",
+    "name": "@twint-studio/infisical-sdk",
     "version": "1.0.0",
     "description": "Simple SDK for Infisical.",
     "license": "0BSD",

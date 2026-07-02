@@ -7,7 +7,7 @@ A simple, zero-dependency Infisical SDK.
 ### CJS
 
 ```js
-const { InfisicalSDK } = require("infisical-sdk");
+const { InfisicalSDK } = require("@twint-studio/infisical-sdk");
 
 const client = new InfisicalSDK({
     siteUrl: "https://app.infisical.com" // optional
@@ -20,7 +20,7 @@ const secrets = await client.secrets("dev", "<project-id>");
 ### ESM
 
 ```js
-import { InfisicalSDK } from "infisical-sdk";
+import { InfisicalSDK } from "@twint-studio/infisical-sdk";
 
 const client = new InfisicalSDK({
     siteUrl: "https://app.infisical.com" // optional

@@ -1,0 +1,35 @@
+name: Publish to NPM
+
+on:
+  push:
+    branches: [main]
+    paths: ["js/package.json"]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: js
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Check if version is already published
+        id: check
+        run: |
+          PKG_NAME=$(node -p "require('./package.json').name")
+          PKG_VER=$(node -p "require('./package.json').version")
+          STATUS=$(curl -s "https://registry.npmjs.org/$PKG_NAME/$PKG_VER" | node -p "Object.keys(JSON.parse(require('fs').readFileSync('/dev/stdin','utf8'))).includes('version')")
+          echo "published=$STATUS" >> $GITHUB_OUTPUT
+
+      - run: npm publish
+        working-directory: js
+        if: steps.check.outputs.published == 'false'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
