@@ -1,3 +1,3 @@
-module github.com/Twint-Studio/infisical-sdk
+module github.com/Twint-Studio/infisical-sdk/go
 
 go 1.26.3
