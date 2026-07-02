@@ -4,6 +4,9 @@
     "description": "Simple SDK for Infisical.",
     "license": "0BSD",
     "author": "Prince527",
+    "publishConfig": {
+        "access": "public"
+    },
     "exports": {
         ".": {
             "import": "./index.mjs",
